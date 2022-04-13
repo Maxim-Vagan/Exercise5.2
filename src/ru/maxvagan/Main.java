@@ -19,7 +19,7 @@ public class Main {
 //        System.out.println(Arrays.toString(budgetBookDays));
         int monthSummary = 0;
         for (final int eachDay : budgetBookDays) monthSummary += eachDay;
-        System.out.println("Сумма трат за месяц составила " + monthSummary + " рублей");
+        System.out.println("РЎСѓРјРјР° С‚СЂР°С‚ Р·Р° РјРµСЃСЏС† СЃРѕСЃС‚Р°РІРёР»Р° " + monthSummary + " СЂСѓР±Р»РµР№");
 //        Task 2
         System.out.println("Task 2");
         int minCostPerMonth = budgetBookDays[0]; int maxCostPerMonth = 0;
@@ -27,17 +27,17 @@ public class Main {
             minCostPerMonth = Math.min(minCostPerMonth, budgetBookDays[i]);
             maxCostPerMonth = Math.max(maxCostPerMonth, budgetBookDays[i]);
         }
-        System.out.println("Минимальная сумма трат за месяц составила " + minCostPerMonth +
-                " рублей. Максимальная сумма трат за месяц составила " + maxCostPerMonth + " рублей");
+        System.out.println("РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° С‚СЂР°С‚ Р·Р° РјРµСЃСЏС† СЃРѕСЃС‚Р°РІРёР»Р° " + minCostPerMonth +
+                " СЂСѓР±Р»РµР№. РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° С‚СЂР°С‚ Р·Р° РјРµСЃСЏС† СЃРѕСЃС‚Р°РІРёР»Р° " + maxCostPerMonth + " СЂСѓР±Р»РµР№");
 //        Task 3
         System.out.println("Task 3");
         float avgPerMonth = monthSummary / (float)budgetBookDays.length;
-        System.out.println("Средняя сумма трат за месяц составила " + avgPerMonth + " рублей");
+        System.out.println("РЎСЂРµРґРЅСЏСЏ СЃСѓРјРјР° С‚СЂР°С‚ Р·Р° РјРµСЃСЏС† СЃРѕСЃС‚Р°РІРёР»Р° " + avgPerMonth + " СЂСѓР±Р»РµР№");
 //        Task 4
         System.out.println("Task 4");
         char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         for (int i = reverseFullName.length-1; i >= 0; i--)
             System.out.print(reverseFullName[i]);
-//        В ожидание повышенной сложности
+//        Р’ РѕР¶РёРґР°РЅРёРµ РїРѕРІС‹С€РµРЅРЅРѕР№ СЃР»РѕР¶РЅРѕСЃС‚Рё
     }
 }
