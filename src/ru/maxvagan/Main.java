@@ -2,6 +2,7 @@ package ru.maxvagan;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Main {
     public static int[] funcGenerateRandomArray(int arrayLenght, int beginValue, int endValue) {
@@ -19,7 +20,7 @@ public class Main {
 //        System.out.println(Arrays.toString(budgetBookDays));
         int monthSummary = 0;
         for (final int eachDay : budgetBookDays) monthSummary += eachDay;
-        System.out.println("Ñóììà òðàò çà ìåñÿö ñîñòàâèëà " + monthSummary + " ðóáëåé");
+        System.out.println("Ð¡ÑƒÐ¼Ð¼Ð° Ñ‚Ñ€Ð°Ñ‚ Ð·Ð° Ð¼ÐµÑÑÑ† ÑÐ¾ÑÑ‚Ð°Ð²Ð¸Ð»Ð° " + monthSummary + " Ñ€ÑƒÐ±Ð»ÐµÐ¹");
 //        Task 2
         System.out.println("Task 2");
         int minCostPerMonth = budgetBookDays[0]; int maxCostPerMonth = 0;
@@ -27,16 +28,72 @@ public class Main {
             minCostPerMonth = Math.min(minCostPerMonth, budgetBookDays[i]);
             maxCostPerMonth = Math.max(maxCostPerMonth, budgetBookDays[i]);
         }
-        System.out.println("Ìèíèìàëüíàÿ ñóììà òðàò çà ìåñÿö ñîñòàâèëà " + minCostPerMonth +
-                " ðóáëåé. Ìàêñèìàëüíàÿ ñóììà òðàò çà ìåñÿö ñîñòàâèëà " + maxCostPerMonth + " ðóáëåé");
+        System.out.println("ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ ÑÑƒÐ¼Ð¼Ð° Ñ‚Ñ€Ð°Ñ‚ Ð·Ð° Ð¼ÐµÑÑÑ† ÑÐ¾ÑÑ‚Ð°Ð²Ð¸Ð»Ð° " + minCostPerMonth +
+                " Ñ€ÑƒÐ±Ð»ÐµÐ¹. ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ ÑÑƒÐ¼Ð¼Ð° Ñ‚Ñ€Ð°Ñ‚ Ð·Ð° Ð¼ÐµÑÑÑ† ÑÐ¾ÑÑ‚Ð°Ð²Ð¸Ð»Ð° " + maxCostPerMonth + " Ñ€ÑƒÐ±Ð»ÐµÐ¹");
 //        Task 3
         System.out.println("Task 3");
         float avgPerMonth = monthSummary / (float)budgetBookDays.length;
-        System.out.println("Ñðåäíÿÿ ñóììà òðàò çà ìåñÿö ñîñòàâèëà " + avgPerMonth + " ðóáëåé");
+        System.out.println("Ð¡Ñ€ÐµÐ´Ð½ÑÑ ÑÑƒÐ¼Ð¼Ð° Ñ‚Ñ€Ð°Ñ‚ Ð·Ð° Ð¼ÐµÑÑÑ† ÑÐ¾ÑÑ‚Ð°Ð²Ð¸Ð»Ð° " + avgPerMonth + " Ñ€ÑƒÐ±Ð»ÐµÐ¹");
 //        Task 4
         System.out.println("Task 4");
         char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         for (int i = reverseFullName.length-1; i >= 0; i--)
             System.out.print(reverseFullName[i]);
+        System.out.println();
+//        Extra Level
+//        Task 5
+        System.out.println("Task 5");
+        int keyNumber = 1;
+        int[][] matrix = new int[3][3];
+        int lenMatr = matrix.length;
+        for (int i=0;i<lenMatr;i++) {
+            matrix[i][i] = keyNumber;
+            matrix[i][lenMatr - i - 1] = keyNumber;
+        }
+        for (int[] row : matrix) {
+            for (int col : row)
+                System.out.print(col + " ");
+            System.out.println();
+        }
+//        Task 6
+        System.out.println("Task 6");
+        int[] wrongArray = {5, 4, 3, 2, 1};
+        System.out.println("Ð‘Ñ‹Ð»Ð¾");
+        System.out.println(Arrays.toString(wrongArray));
+        int[] rightArray = Arrays.copyOf(wrongArray, wrongArray.length);
+        Arrays.sort(rightArray, 0, wrongArray.length);
+        System.out.println("Ð¡Ñ‚Ð°Ð»Ð¾");
+        System.out.println(Arrays.toString(rightArray));
+//        Task 7
+        System.out.println("Task 7");
+        wrongArray = new int[]{5, 8, 2, 3, 9};
+        System.out.println("Ð‘Ñ‹Ð»Ð¾");
+        System.out.println(Arrays.toString(wrongArray));
+        int buffNumber = 0;
+        for (int i=0; i<wrongArray.length/2; i++) {
+            buffNumber = wrongArray[i];
+            wrongArray[i] = wrongArray[wrongArray.length - 1 - i];
+            wrongArray[wrongArray.length - 1 - i] = buffNumber;
+        }
+        System.out.println("Ð¡Ñ‚Ð°Ð»Ð¾");
+        System.out.println(Arrays.toString(wrongArray));
+//        Task 8
+        System.out.println("Task 8");
+        int[] vectorString = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
+        boolean isSumSatisfy = false;
+        for (int i = 0; i < vectorString.length - 1 && isSumSatisfy == false; i++) {
+            for (int j = i; j < vectorString.length && isSumSatisfy == false; j++) {
+                isSumSatisfy = vectorString[i] + vectorString[j] == -2;
+                if (isSumSatisfy) System.out.println("Ð¡ÑƒÐ¼Ð¼Ð° Ñ‡Ð¸ÑÐ»Ð° " + vectorString[i] + " Ð¸ Ñ‡Ð¸ÑÐ»Ð° " + vectorString[j] + " Ñ€Ð°Ð²Ð½Ð° -2");
+            }
+        }
+//        Task 9
+        System.out.println("Task 9");
+        for (int i = 0; i < vectorString.length - 1; i++) {
+            for (int j = i; j < vectorString.length; j++) {
+                if (vectorString[i] + vectorString[j] == -2)
+                    System.out.println("Ð¡ÑƒÐ¼Ð¼Ð° Ñ‡Ð¸ÑÐ»Ð° " + vectorString[i] + " Ð¸ Ñ‡Ð¸ÑÐ»Ð° " + vectorString[j] + " Ñ€Ð°Ð²Ð½Ð° -2");
+            }
+        }
     }
 }
