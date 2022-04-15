@@ -95,5 +95,6 @@ public class Main {
                     System.out.println("Сумма числа " + vectorString[i] + " и числа " + vectorString[j] + " равна -2");
             }
         }
+//        Для пула
     }
 }
